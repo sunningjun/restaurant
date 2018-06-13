@@ -1,9 +1,11 @@
 package com.wechat.restaurant.service;
 
 import com.wechat.restaurant.entity.Category;
+import com.wechat.restaurant.entity.Collection;
 import com.wechat.restaurant.entity.Product;
 import com.wechat.restaurant.dto.SearchAllResult;
 import com.wechat.restaurant.repository.CategoryRepository;
+import com.wechat.restaurant.repository.CollectionRepository;
 import com.wechat.restaurant.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +42,10 @@ public class SearchService {
     public Product searchProductById(String id){
         Integer productId=Integer.parseInt(id);
         return  productRepository.findById(productId).get();
+    }
+    public Product saveProduct(){
+        Product product=new Product();
+//        product.setId(Integer.parseInt(productId));
+        return productRepository.save( product);
     }
 }

@@ -1,9 +1,11 @@
 package com.wechat.restaurant.controller;
 
 import com.wechat.restaurant.entity.Category;
+import com.wechat.restaurant.entity.Collection;
 import com.wechat.restaurant.entity.Product;
 import com.wechat.restaurant.dto.SearchAllResult;
 import com.wechat.restaurant.service.SearchService;
+import io.netty.util.concurrent.ProgressiveFuture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,4 +48,12 @@ public class SearchController {
     public List<SearchAllResult> findAll(){
         return searchService.searchAll();
     }
+
+
+    @RequestMapping("/saveProduct")
+    @ResponseBody
+    public Product saveProduct(){
+        return searchService.saveProduct();
+    }
+
 }

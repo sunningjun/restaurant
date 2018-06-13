@@ -1,22 +1,19 @@
 package com.wechat.restaurant.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "product")
+@Inheritance(strategy =InheritanceType.JOINED)
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 public class Product {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_")
     private int id;
     @Column(name = "name_")
@@ -27,5 +24,10 @@ public class Product {
     @Column(name = "image_")
 
     private String image;
+    @Column(name = "category_")
 
+    private String category;
+    @Column(name = "description_")
+
+    private String description;
 }
