@@ -8,7 +8,7 @@ import lombok.Getter;
 import java.util.List;
 
 @AllArgsConstructor
-@Getter
+@lombok.Getter
 public class SearchAllResult {
     private Category category;
     private List<Product> productList;
